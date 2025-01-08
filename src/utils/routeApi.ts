@@ -1,6 +1,6 @@
 // require('dotenv').config;
 
-const host = "http://localhost:3000";
+const host = "https://hackathon-backend-hjyn.onrender.com";
 // const host = "https://secondbrain-server.vercel.app";
 
 

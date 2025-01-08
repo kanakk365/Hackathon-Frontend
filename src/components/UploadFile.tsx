@@ -20,7 +20,7 @@ export function UploadFile() {
 
   const handleLoad = async () => {
     try {
-      const res = await axios.post("http://localhost:3000/api/v1/load/ai");
+      const res = await axios.post("https://hackathon-backend-hjyn.onrender.com/api/v1/load/ai");
       console.log(res.data.message);
 
       const info = res.data.message;
@@ -52,7 +52,7 @@ export function UploadFile() {
     formData.append("file", file);
 
     try {
-      const res = await axios.post("http://localhost:3000/api/v1/upload/file", formData, {
+      const res = await axios.post("https://hackathon-backend-hjyn.onrender.com/api/v1/upload/file", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
