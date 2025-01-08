@@ -20,7 +20,7 @@ function Landing() {
         © 2024 for hackthon All rights reserved. build by{" "}
         <Button className="p-0 " variant="link">
           <a className="text-gray-400" href="https://github.com/kanakk365">
-            Kanak
+            @Team Vespers
           </a>
         </Button>
       </div>
