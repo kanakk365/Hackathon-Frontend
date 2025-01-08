@@ -1,6 +1,4 @@
 import Hero from "@/components/hero section/Hero";
-import { navItems } from "../components/site/nav";
-import { FloatingNav } from "@/components/ui/floating-navbar";
 import { MacbookScroll } from "@/components/ui/macbook-scroll";
 import Cards from "@/components/Cards";
 import { Button } from "@/components/ui/button";

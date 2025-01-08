@@ -1,5 +1,5 @@
-import React from "react";
-import { BookOpenCheck, File, Layers, MessageCircle, Pen, Search, Twitter } from "lucide-react";
+
+import { BookOpenCheck, File, Layers, MessageCircle, Pen, Search, } from "lucide-react";
 
 export const cards = [
   {

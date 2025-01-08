@@ -1,8 +1,5 @@
-import { FileUpload } from '@/components/ui/file-upload'
-import React from 'react'
+
 import { UploadFile  } from '@/components/UploadFile'
-import {GridPattern} from '@/components/ui/file-upload'
-import { Button } from '@/components/ui/button'
 function Upload() {
   return <>
   <div className="h-full sm:mt-10 mt-9 min-h-[46rem] xl:min-h-[94.9vh] mx-auto overflow-hidden">
