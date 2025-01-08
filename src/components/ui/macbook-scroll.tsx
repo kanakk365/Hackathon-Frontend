@@ -166,7 +166,7 @@ export const Lid = ({
       >
         <div className="absolute inset-0 bg-[#272729] rounded-lg" />
         <img
-          src="../../../public/Screenshot 2025-01-08 211344.png"
+          src="https://res.cloudinary.com/di32agr2l/image/upload/v1736364483/yuehy6ihgxbudc6dswep.png"
           alt=""
           
           className="object-cover object-left-top absolute rounded-lg inset-0  w-full h-full"
