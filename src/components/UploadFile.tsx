@@ -5,10 +5,13 @@ import axios from "axios";
 import { Button } from "./ui/button";
 import { toast } from "sonner";
 import { motion } from "framer-motion";
+import { PlaceholdersAndVanishInput } from "./ui/placeholders-and-vanish-input";
+import ShinyButton from "./ui/shiny-button";
 
 export function UploadFile() {
   const [file, setFile] = useState<File | null>(null);
   const [data, setData] = useState<string | JSX.Element>("Waiting for response");
+  const [value, setValue]= useState<string>("")
 
  
   const handleFileUpload = (selectedFiles: File[]) => {
@@ -17,6 +20,30 @@ export function UploadFile() {
     }
   };
 
+  const handleInputChange = async(e:any)=>{
+    setValue(e.target.value)
+  }
+
+  const handleInputSubmit = async()=>{
+    try {
+      const res = await axios.post("https://hackathon-backend-hjyn.onrender.com/api/v1/search/query")
+      const serchInfo= res.data.message;
+      const formattedData = serchInfo.split("**").map((item:any, index:any) => {
+        return (
+          <p key={index} className="text-gray-100">
+            {item.trim()}
+          </p>
+        );
+      });
+      setData(formattedData)
+    } catch (error) {
+      console.log(error);
+      setData(<p className="text-red-500">Error loading data!</p>);
+    }
+    
+  }
+  const inputs = ["enter", "enter"]
+  
 
   const handleLoad = async () => {
     try {
@@ -41,7 +68,7 @@ export function UploadFile() {
     }
   };
 
-  // Handle file submission
+  
   const handleSubmit = async () => {
     if (!file) {
       console.log("No file selected");
@@ -50,7 +77,7 @@ export function UploadFile() {
 
     const formData = new FormData();
     formData.append("file", file);
-
+    //https://hackathon-backend-hjyn.onrender.com/api/v1/upload/file
     try {
       const res = await axios.post("https://hackathon-backend-hjyn.onrender.com/api/v1/upload/file", formData, {
         headers: {
@@ -85,6 +112,11 @@ export function UploadFile() {
       </div>
 
       <div className="w-full min-w-[40vw] max-w-full md:max-w-8xl flex-wrap border border-dashed rounded-lg bg-white dark:bg-transparent border-neutral-200 dark:bg-black dark:opacity-50 shadow-sm p-4 md:p-6">
+        <div className=" items-start flex justify-start mb-10 gap-5">
+          {/* <PlaceholdersAndVanishInput placeholders={inputs} onChange={handleInputChange}  onSubmit={handleInputSubmit}/> */}
+          <input onChange={(e)=>{handleInputChange(e)}}  className="text-white bg-transparent px-2 py-1 text-lg border border-neutral-600 rounded-lg w-full" type="text"  />
+          <ShinyButton className="" onClick={handleInputSubmit}>Send</ShinyButton>
+        </div>
         <h3 className="text-xl md:text-2xl text-[#e01bff] z-10 pb-3">Analytics & Suggestions</h3>
         
         <div className="w-full text-sm md:text-base text-white">
