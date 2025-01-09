@@ -25,7 +25,7 @@ export function UploadFile() {
 
   const handleInputSubmit = async()=>{
     try {
-      const res = await axios.post("https://hackathon-backend-hjyn.onrender.com/api/v1/load/ai/api/v1/search/query", {
+      const res = await axios.post("https://hackathon-backend-hjyn.onrender.com/api/v1/search/query", {
         search : value
       })
       const serchInfo= res.data.message;
