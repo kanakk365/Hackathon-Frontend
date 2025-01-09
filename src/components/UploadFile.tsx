@@ -47,7 +47,7 @@ export function UploadFile() {
 
   const handleLoad = async () => {
     try {
-      const res = await axios.post("https://hackathon-backend-hjyn.onrender.com/api/v1/load/ai/api/v1/load/ai");
+      const res = await axios.post("https://hackathon-backend-hjyn.onrender.com/api/v1/load/ai");
       console.log(res.data.message);
 
       const info = res.data.message;
