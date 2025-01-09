@@ -5,7 +5,6 @@ import axios from "axios";
 import { Button } from "./ui/button";
 import { toast } from "sonner";
 import { motion } from "framer-motion";
-import { PlaceholdersAndVanishInput } from "./ui/placeholders-and-vanish-input";
 import ShinyButton from "./ui/shiny-button";
 
 export function UploadFile() {
@@ -26,7 +25,9 @@ export function UploadFile() {
 
   const handleInputSubmit = async()=>{
     try {
-      const res = await axios.post("https://hackathon-backend-hjyn.onrender.com/api/v1/search/query")
+      const res = await axios.post("https://hackathon-backend-hjyn.onrender.com/api/v1/load/ai/api/v1/search/query", {
+        search : value
+      })
       const serchInfo= res.data.message;
       const formattedData = serchInfo.split("**").map((item:any, index:any) => {
         return (
@@ -42,12 +43,11 @@ export function UploadFile() {
     }
     
   }
-  const inputs = ["enter", "enter"]
-  
+  //https://hackathon-backend-hjyn.onrender.com/api/v1/load/ai
 
   const handleLoad = async () => {
     try {
-      const res = await axios.post("https://hackathon-backend-hjyn.onrender.com/api/v1/load/ai");
+      const res = await axios.post("https://hackathon-backend-hjyn.onrender.com/api/v1/load/ai/api/v1/load/ai");
       console.log(res.data.message);
 
       const info = res.data.message;
@@ -113,7 +113,6 @@ export function UploadFile() {
 
       <div className="w-full min-w-[40vw] max-w-full md:max-w-8xl flex-wrap border border-dashed rounded-lg bg-white dark:bg-transparent border-neutral-200 dark:bg-black dark:opacity-50 shadow-sm p-4 md:p-6">
         <div className=" items-start flex justify-start mb-10 gap-5">
-          {/* <PlaceholdersAndVanishInput placeholders={inputs} onChange={handleInputChange}  onSubmit={handleInputSubmit}/> */}
           <input onChange={(e)=>{handleInputChange(e)}}  className="text-white bg-transparent px-2 py-1 text-lg border border-neutral-600 rounded-lg w-full" type="text"  />
           <ShinyButton className="" onClick={handleInputSubmit}>Send</ShinyButton>
         </div>
